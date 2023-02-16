@@ -1,5 +1,49 @@
-<!--
-    Replace this with your working code from Lab 2, and include:
-    - The styles in this folder's `style.css`
-    - The script in script.js, which should be included via a `<script src="script.js" >` call before your closing </body> tag 
--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anthony Capasso's labs</title>
+  <link rel='stylesheet' href='style.css'>
+</head> 
+
+<body class ="header">
+    <div class="wrapper">
+        <h1 class='header h1'>Anthony Capasso's Labs for INST377</h1>
+            <div class="container">
+                <div class="box left_section">
+                <h2>Album Names</h2>
+                   <ol class="box">
+                      <li>Ghost - Meliora</li>
+                      <li>Helloween - Helloween</li>
+                      <li>Brothers of Metal - Prophecy of Ragnarök</li>
+                      <li>Megadeth - Rust in Peace</li>
+                      <li>Iron Maiden - Fear of the Dark</li>
+                   </ol> 
+                </div>
+                <div class="right_section box">
+                    <h3 >Image Carousel</h3>
+                    <div class="carousel">
+                        <button class="prev">previous</button>
+                        <div class="slides">
+                            <div class="carousel_item visible"><img id="slide_1" src="images/bear-1.jpg" alt="bear-1 jpg" /></div>
+                            <div class="carousel_item hidden"><img id="slide_2" src="images/bear-2.jpg" alt="bear-2 jpg" /></div>
+                            <div class="carousel_item hidden"><img id="slide_3" src="images/bear-3.jpg" alt="bear-3 jpg" /></div>
+                            <div class="carousel_item hidden"><img id="slide_4" src="images/bear-4.jpg" alt="bear-4 jpg" /></div>
+                        </div>
+                        <button class="next">next</button>
+                    </div>
+                    <div class="box">
+                        <p>The four images above are in order a mochi gif, a mochi jpg, a mochi png, and a mochi svg.</p>
+                    </div>
+                </div>
+            </div>
+        <p class='footer'>
+            Anthonycaps2 
+            <a href="https://github.com/Anthonycaps2" class='footer a'>Anthonycaps2</a>
+        </p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

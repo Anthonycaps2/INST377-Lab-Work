@@ -7,7 +7,7 @@
 */
 /* eslint-enable max-len */
 // set our first slide's position to "0", the opening position in an array
-const slidePosition = 0;
+let slidePosition = 0;
 
 // gather a reference to every slide we're using via the class name and querySelectorAll
 const slides = document.querySelectorAll('.carousel_item');
@@ -19,6 +19,9 @@ const slidesArray = Array.from(slides);
 const totalSlides = slidesArray.length;
 
 function updateSlidePosition() {
+  slidesArray.forEach(slide => {
+
+  })
   // Using the .forEach array method, (array.forEach((element) => { per-element work goes here }))
   // loop through all the slides in your slideArray
   // and remove the 'visible' class from each classList
