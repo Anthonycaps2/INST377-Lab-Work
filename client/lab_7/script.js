@@ -53,10 +53,13 @@
         const filterDataButton = document.querySelector('#filter');
         const loadDataButton = document.querySelector('#data_load');
         const generatelistButton = document.querySelector('#generate');
-        
+        const textField = document.querySelector('#resto');
+
         const loadAnimation = document.querySelector('#data_load_animation');
         loadAnimation.style.display = 'none';
+        generatelistButton.classList.add('hidden');
         
+        let storedList = [];
         let currentList = []; // this is "scoped" to the main event function
       
         loadDataButton.addEventListener('click', async (submitEvent) => { // async has to be declared on every function that needs to "await" something    
@@ -64,14 +67,18 @@
           loadAnimation.style.display = 'inline-block';
           // Basic GET request - this replaces the form Action
           const results = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
+          
       
           // This changes the response from the GET into data we can use - an "object"
-          currentList = await results.json();
+          storedList = await results.json();
+          if (storedList.length > 0){ 
+            generatelistButton.classList.remove('hidden');
+          }
           loadAnimation.style.display = 'none';
-          console.table(currentList); 
+          console.table(storedList); 
         });
       
-        filter.addEventListener('click', (event) => {
+        filterDataButton.addEventListener('click', (event) => {
           console.log('clicked filterButton'); 
       
           const formData = new FormData(mainForm);
@@ -86,8 +93,9 @@
       
         generatelistButton.addEventListener('click', (event) => {
           console.log('gen new list'); 
-          const restaurantsList = cutRestaurantList(currentList);
-          injectHTML(restaurantsList);
+          currentList = cutRestaurantList(storedList);
+          console.log(currentList);
+          injectHTML(currentList);
         })
         /*
           Now that you HAVE a list loaded, write an event listener set to your filter button
@@ -98,6 +106,13 @@
           Fire it here and filter for the word "pizza"
           you should get approximately 46 results
         */
+
+       textField.addEventListener('input', (event) => {
+        console.log('input', event.target.value); 
+        const newList = filterList(currentList, event.target.value);
+        console.log(newList);
+        injectHTML(newList);
+       })
       }
       
       /*
